@@ -7,9 +7,9 @@
 ```js
 const apples = 47;
 const grapes = 135;
-const total = ;
+const total = apple+grapes;
 console.log(total)
-const diff = ;
+const diff = apple - grapes;
 console.log(diff)
 ```
 
@@ -19,7 +19,7 @@ console.log(diff)
 
 ```js
 let students = 100;
-students = students + 50;
+students += 50;
 console.log(students);
 ```
 
@@ -52,7 +52,8 @@ const value = 27.5;
 const companyName = 'Cyberdyne Systems';
 const repairBots = 150;
 const defenceBots = 50;
-const message = ``;
+const summ = repairBots+defenceBots;
+const message = `Cyberdyne ${summ} Systems`;
 console.log(message); // "Cyberdyne Systems has 200 bots in stock"
 ```
 
@@ -72,7 +73,8 @@ console.log(message); // "Cyberdyne Systems has 200 bots in stock"
 let weight = '88,3';
 let height = '1.75';
 
-const bmi = ;
+
+const bmi = Number.parseFloat(weight.replace(',', '.'))/Math.pow(Number.parseFloat(height), 2);
 console.log(bmi); // 28.8
 ```
 
@@ -83,33 +85,33 @@ console.log(bmi); // 28.8
 ```js
 console.log(5 > 4);
 
-console.log(10 >= '7');
+console.log(10 >= '7'); //true
 
-console.log('2' > '12');
+console.log('2' > '12'); //true
 
-console.log('2' < '12');
+console.log('2' < '12'); //false
 
-console.log('4' == 4);
+console.log('4' == 4);//true
 
-console.log('6' === 6);
+console.log('6' === 6); //false
 
-console.log('false' === false);
+console.log('false' === false); //false
 
-console.log(1 == true);
+console.log(1 == true); //true
 
-console.log(1 === true);
+console.log(1 === true);//false
 
-console.log('0' == false);
+console.log('0' == false);//true
 
-console.log('0' === false);
+console.log('0' === false); //false
 
-console.log('Papaya' < 'papaya');
+console.log('Papaya' < 'papaya');//true
 
-console.log('Papaya' === 'papaya');
+console.log('Papaya' === 'papaya'); //false
 
-console.log(undefined == null);
+console.log(undefined == null); //true
 
-console.log(undefined === null);
+console.log(undefined === null);//false
 ```
 
 ## Example 8 - Логічні оператори
@@ -117,25 +119,26 @@ console.log(undefined === null);
 Яким буде результат виразів?
 
 ```js
-console.log(true && 3);
+console.log(true && 3);//3
 
-console.log(false && 3);
+console.log(false && 3);//false
 
-console.log(true && 4 && 'kiwi');
+console.log(true && 4 && 'kiwi');//kiwi
 
-console.log(true && 0 && 'kiwi');
+console.log(true && 0 && 'kiwi'); //0
 
-console.log(true || 3);
 
-console.log(true || 3 || 4);
+console.log(true || 3);//true
 
-console.log(true || false || 7);
+console.log(true || 3 || 4); //true
 
-console.log(null || 2 || undefined);
+console.log(true || false || 7);//true
 
-console.log((1 && null && 2) > 0);
+console.log(null || 2 || undefined);//2
 
-console.log(null || (2 && 3) || 4);
+console.log((1 && null && 2) > 0); //false
+
+console.log(null || (2 && 3) || 4);// null || 3 || 4 // 3
 ```
 
 ## Example 9 - Значення за замовчуванням та оператор нульового злиття
@@ -147,9 +150,15 @@ console.log(null || (2 && 3) || 4);
 false. Використовуй оператор `??` (nullish coalescing operator).
 
 ```js
-const incomingValue = 5;
+const incomingValue = 0;
 const defaultValue = 10;
-const value = incomingValue || defaultValue;
+const value = incomingValue ?? defaultValue;
+
+// || - 0, "", false, null, undefined => false
+// ?? - 0, "", false, => true
+// ?? - `undefined`  `null` => false
+
+
 console.log(value);
 ```
 
@@ -165,12 +174,12 @@ console.log(value);
 ```js
 const totalMinutes = 70;
 
-const hours = Math.floor(totalMinutes / 60);
-const minutes = totalMinutes % 60;
+const hours = Math.floor(totalMinutes / 60); //1
+const minutes = totalMinutes % 60; //10
 console.log(hours);
 console.log(minutes);
 
-const doubleDigitHours = String(hours).padStart(2, 0);
-const doubleDigitMinutes = String(minutes).padStart(2, 0);
+const doubleDigitHours = hours.toString().padStart(2, 0); // "".padStart(2, 0) => "00"
+const doubleDigitMinutes = String(minutes).padStart(2, 0); //
 console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
 ```
